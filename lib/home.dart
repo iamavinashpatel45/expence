@@ -38,12 +38,9 @@ class _HomeState extends State<Home> {
             color: Color.fromARGB(255, 255, 68, 59),
           ),
           backgroundColor: Color.fromARGB(255, 240, 244, 253),
-          title: Hero(
-            tag: "patel",
-            child: Text(
-              'Expence',
-              style: TextStyle(color: Color.fromARGB(255, 255, 68, 59)),
-            ),
+          title: Text(
+            'Expence',
+            style: TextStyle(color: Color.fromARGB(255, 255, 68, 59)),
           ),
           actions: [
             InkWell(
@@ -68,131 +65,135 @@ class _HomeState extends State<Home> {
           },
           child: Icon(Icons.add),
         ),
-        body: ListView.builder(
-            itemCount: List_data.data.length,
-            itemBuilder: (context, index) {
-              String str = List_data.data[index];
-              List<String> l = str.split(',');
-              String time = l[0].substring(9, l[0].length - 1);
-              String date = l[1].substring(8, l[1].length - 1);
-              String amount = l[2].substring(9, l[2].length);
-              String dec = l[3].substring(7, l[3].length - 2);
-              return Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                          color: Color.fromARGB(255, 255, 68, 59), width: 1.5)),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 10, bottom: 15),
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.currency_rupee_sharp,
-                                    color: HexColor("#00acc1"),
-                                  ),
-                                  Text(
-                                    amount,
-                                    style: TextStyle(
-                                        color: HexColor("#00acc1"),
-                                        fontSize: 20),
-                                  ),
-                                ],
-                              ),
-                              Divider(
-                                color: Colors.black,
-                              ),
-                            ],
-                          ),
-                          subtitle: Row(
-                            children: [
-                              SizedBox(width: 8),
-                              Expanded(
-                                child: Text(
-                                  dec,
-                                  style: TextStyle(
-                                      color: Colors.black, fontSize: 18),
+        body: SafeArea(
+          child: ListView.builder(
+              itemCount: List_data.data.length,
+              itemBuilder: (context, index) {
+                String str = List_data.data[index];
+                List<String> l = str.split(',');
+                String time = l[0].substring(9, l[0].length - 1);
+                String date = l[1].substring(8, l[1].length - 1);
+                String amount = l[2].substring(9, l[2].length);
+                String dec = l[3].substring(7, l[3].length - 2);
+                return Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(
+                            color: Color.fromARGB(255, 255, 68, 59),
+                            width: 1.5)),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 15),
+                      child: Column(
+                        children: [
+                          ListTile(
+                            title: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.currency_rupee_sharp,
+                                      color: HexColor("#00acc1"),
+                                    ),
+                                    Text(
+                                      amount,
+                                      style: TextStyle(
+                                          color: HexColor("#00acc1"),
+                                          fontSize: 20),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 5),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Icon(Icons.date_range),
-                                  Text(
-                                    date,
-                                    style: TextStyle(fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "||",
+                                Divider(
+                                  color: Colors.black,
+                                ),
+                              ],
+                            ),
+                            subtitle: Row(
+                              children: [
+                                SizedBox(width: 8),
+                                Expanded(
+                                  child: Text(
+                                    dec,
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
+                                        color: Colors.black, fontSize: 18),
                                   ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Icon(Icons.access_time),
-                                  SizedBox(
-                                    width: 2,
-                                  ),
-                                  Text(
-                                    time,
-                                    style: TextStyle(fontSize: 15),
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  )
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  InkWell(
-                                      onTap: () {
-                                        remove(index);
-                                      },
-                                      child: Icon(
-                                        Icons.remove_circle_outline_rounded,
-                                        color: Color.fromARGB(255, 255, 68, 59),
-                                      )),
-                                  SizedBox(
-                                    width: 10,
-                                  )
-                                ],
-                              ),
-                            ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Icon(Icons.date_range),
+                                    Text(
+                                      date,
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "||",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20),
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Icon(Icons.access_time),
+                                    SizedBox(
+                                      width: 2,
+                                    ),
+                                    Text(
+                                      time,
+                                      style: TextStyle(fontSize: 15),
+                                    ),
+                                    SizedBox(
+                                      width: 20,
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    InkWell(
+                                        onTap: () {
+                                          remove(index);
+                                        },
+                                        child: Icon(
+                                          Icons.remove_circle_outline_rounded,
+                                          color:
+                                              Color.fromARGB(255, 255, 68, 59),
+                                        )),
+                                    SizedBox(
+                                      width: 10,
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
-            }));
+                );
+              }),
+        ));
   }
 }

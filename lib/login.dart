@@ -41,12 +41,9 @@ class _log_inState extends State<log_in> {
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 240, 244, 253),
         elevation: 1,
-        title: Hero(
-          tag: "patel",
-          child: Text(
-            'Expence',
-            style: TextStyle(color: Color.fromARGB(255, 255, 68, 59)),
-          ),
+        title: Text(
+          'Expence',
+          style: TextStyle(color: Color.fromARGB(255, 255, 68, 59)),
         ),
       ),
       body: SafeArea(
@@ -61,6 +58,17 @@ class _log_inState extends State<log_in> {
                   key: _formKey,
                   child: Column(
                     children: [
+                      Text(
+                        "Welcome",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                          color: HexColor("#00acc1"),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
                       TextFormField(
                         onChanged: (value) {
                           name = value;
@@ -81,7 +89,7 @@ class _log_inState extends State<log_in> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide(
-                              color: Colors.blue,
+                              color: HexColor("#00acc1"),
                             ),
                           ),
                           border: OutlineInputBorder(
@@ -100,8 +108,12 @@ class _log_inState extends State<log_in> {
                           if (value!.isEmpty) {
                             return "Enter Number";
                           }
-                          if (value.length != 10) {
-                            return "Enter Proper Number";
+                          if (value.length != 10 ||
+                              value.contains(" ") ||
+                              value.contains("-") ||
+                              value.contains(".") ||
+                              value.contains(",")) {
+                            return "Enter Valid Number";
                           }
                           return null;
                         },
@@ -116,7 +128,7 @@ class _log_inState extends State<log_in> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide(
-                              color: Colors.blue,
+                              color: HexColor("#00acc1"),
                             ),
                           ),
                           border: OutlineInputBorder(
@@ -135,10 +147,9 @@ class _log_inState extends State<log_in> {
                           if (value!.isEmpty) {
                             return "Enter Email";
                           }
-                          if(!value.contains("@") && value.contains("."))
-                            {
-                              return "Enter proper Email";
-                            }
+                          if (!value.contains("@") || !value.contains(".")) {
+                            return "Enter Valid Email";
+                          }
                           return null;
                         },
                         keyboardType: TextInputType.emailAddress,
@@ -152,7 +163,7 @@ class _log_inState extends State<log_in> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15),
                             borderSide: BorderSide(
-                              color: Colors.blue,
+                              color: HexColor("#00acc1"),
                             ),
                           ),
                           border: OutlineInputBorder(
@@ -173,7 +184,7 @@ class _log_inState extends State<log_in> {
                             borderRadius:
                                 BorderRadius.circular(button! ? 40 : 12),
                           ),
-                          duration: Duration(milliseconds: 700),
+                          duration: Duration(milliseconds: 900),
                           width: button == true ? 45 : 120,
                           height: 40,
                           child: Center(

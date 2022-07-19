@@ -1,7 +1,7 @@
 import 'dart:convert';
-
+import 'package:expence/Center.dart';
 import 'package:expence/List.dart';
-import 'package:expence/main.dart';
+import 'package:expence/home.dart';
 import 'package:expence/notification.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -39,8 +39,14 @@ class _noteaddState extends State<noteadd> {
       SharedPreferences add = await SharedPreferences.getInstance();
       add.setStringList("reminder", List_data.reminder);
       await notifications.setnotification();
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => Myapp()));
+      Navigator.pop(context);
+      if (List_data.data.isEmpty) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => center()));
+      } else {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Home()));
+      }
     }
   }
 

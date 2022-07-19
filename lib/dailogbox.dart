@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'main.dart';
 import 'dart:convert';
 
 class dialog extends StatefulWidget {
@@ -32,7 +31,9 @@ class _dialogState extends State<dialog> {
       String json = jsonEncode(l);
       List_data.data.add(json);
       add.setStringList("expence", List_data.data);
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Myapp()));
+      Navigator.pop(context);
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => Home()));
     }
     // else
     //   {
@@ -51,19 +52,13 @@ class _dialogState extends State<dialog> {
           key: this._formKey,
           child: Column(
             children: [
-              Hero(
-                tag: "patel",
-                child: Text(
-                  'Expence',
-                  style: TextStyle(color: HexColor("#00acc1")),
-                ),
+              Text(
+                'Expence',
+                style: TextStyle(color: HexColor("#00acc1")),
               ),
-              Hero(
-                tag: "Avi",
-                child: Image.asset(
-                  "assets/add.png",
-                  height: 150,
-                ),
+              Image.asset(
+                "assets/add.png",
+                height: 150,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 5),

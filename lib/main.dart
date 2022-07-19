@@ -28,7 +28,6 @@ class _appState extends State<app> {
     try {
       SharedPreferences get = await SharedPreferences.getInstance();
       login = get.getBool("login")!;
-      //print(get.getBool("login"));
     } catch (e) {}
     await Future.delayed(Duration(seconds: 1));
     setState(() {
@@ -70,16 +69,10 @@ class _MyappState extends State<Myapp> {
   getdate() async {
     SharedPreferences get = await SharedPreferences.getInstance();
     try {
-      List<String> list = get.getStringList("expence")!;
-      if (list.length != 0) {
-        List_data.data = list;
-      }
+      List_data.data = get.getStringList("expence")!;
     } catch (e) {}
     try {
-      List<String> list_1 = get.getStringList("reminder")!;
-      if (list_1.length != 0) {
-        List_data.reminder = list_1;
-      }
+      List_data.reminder = get.getStringList("reminder")!;
     } catch (e) {}
     try {
       List_data.name = get.getString("name");
@@ -117,13 +110,9 @@ class _MyappState extends State<Myapp> {
                   appBar: AppBar(
                     backgroundColor: Color.fromARGB(255, 240, 244, 253),
                     elevation: 0,
-                    title: Hero(
-                      tag: "patel",
-                      child: Text(
-                        'Expence',
-                        style:
-                            TextStyle(color: Color.fromARGB(255, 255, 68, 59)),
-                      ),
+                    title: Text(
+                      'Expence',
+                      style: TextStyle(color: Color.fromARGB(255, 255, 68, 59)),
                     ),
                   ),
                   body: Center(

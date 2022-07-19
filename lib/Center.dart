@@ -23,12 +23,9 @@ class _centerState extends State<center> {
           color: Color.fromARGB(255, 255, 68, 59),
         ),
         backgroundColor: Color.fromARGB(255, 240, 244, 253),
-        title: Hero(
-          tag: "patel",
-          child: Text(
-            'Expence',
-            style: TextStyle(color: Color.fromARGB(255, 255, 68, 59)),
-          ),
+        title: Text(
+          'Expence',
+          style: TextStyle(color: Color.fromARGB(255, 255, 68, 59)),
         ),
         actions: [
           InkWell(
@@ -47,12 +44,10 @@ class _centerState extends State<center> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Hero(
-                tag: "Avi",
-                child: Image.asset(
-                  "assets/empty.png",
-                  height: 200,
-                )),
+            Image.asset(
+              "assets/empty.png",
+              height: 200,
+            ),
             Text(
               'No Expence',
               style: TextStyle(fontSize: 20),

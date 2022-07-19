@@ -42,10 +42,9 @@ class reminder {
   }
 }
 
-
 class List_data {
   static List<String> data = [];
-  static List<String> reminder=[];
+  static List<String> reminder = [];
   static String? name;
   static String? email;
   static String? num;
